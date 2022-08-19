@@ -84,7 +84,7 @@ class laneDetect:
                 calib = max((-b + tmp) / (2 * a), (-b - tmp) / (2 * a)) + 640
         # 计算档位
         gear = np.searchsorted(self.gear_set, np.abs(calib))
-        if calib < 0:  # -7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7
+        if calib < 0:  # -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7
             gear = -gear
         if side == 1: # 只剩右边线转换成： -7, -6, -5, -4, -3, -2, -1, 0, 0, 1, 2, 3, 4, 5
             if gear > 0:
