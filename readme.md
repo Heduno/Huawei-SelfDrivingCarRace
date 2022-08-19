@@ -2,7 +2,7 @@
 
 ## 1. 下载
 
-在小车上打开终端，运行：
+在小车上打开终端，运行xxx：
 
 ```
 $ git clone https://github.com/Heduno/Huawei-SelfDrivingCarRace.git
