@@ -75,15 +75,15 @@ def draw_dst_pts(event, x, y, flags, param):
         print(MWarp)
 
 if __name__ == '__main__':
-    cv2.namedWindow('src')
+    cv2.namedWindow('auto_driver')
     cv2.namedWindow('dst')
-    cv2.setMouseCallback('src', draw_src_pts)
+    cv2.setMouseCallback('auto_driver', draw_src_pts)
     cv2.setMouseCallback('dst', draw_dst_pts)
 
     cap = cv2.VideoCapture(str(img_path))  # 读入视频
 
     while True:
-        cv2.imshow('src',img_src)
+        cv2.imshow('auto_driver',img_src)
         cv2.imshow('dst',img_dst)
         c = cv2.waitKey(10)
         if c == 27:                         # ESC退出
