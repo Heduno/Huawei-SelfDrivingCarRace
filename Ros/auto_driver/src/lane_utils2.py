@@ -232,7 +232,7 @@ class laneDetect:
         """
         取下方区域，矫正畸变，inRange，透视变换
         """
-        hsv_range = [ 19, 125, 145, 77, 254, 255]
+        hsv_range = [ 0, 74, 124, 77, 222, 255]
         lower_color = np.array(hsv_range[:3])  # 分别对应着HSV中的最小值
         upper_color = np.array(hsv_range[3:])
 
