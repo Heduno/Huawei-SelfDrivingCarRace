@@ -65,7 +65,7 @@ class FollowLaneEvent(DriverEvent):
     def strategy(self):
         """ 控制策略 """
         bias, gear = self.driver.get_lane()
-
+        print(gear)
         bias = -bias
         if gear == 0: # 直道bias控制
             self.direction = 50 # int( self.controller.control(bias) + 50 )
