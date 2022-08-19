@@ -41,7 +41,7 @@ class Driver(object):
         self.Debug = debug
         # 控制
         self.direction_pub  = rospy.Publisher("/auto_driver/send/direction", Int32, queue_size=10)
-        self.speed_pub      = rospy.Publisher("/auto_driver/send/speed", Int32, queue_size=10)
+        self.speed_pub      = rospy.Publisher("/auto_driver/send/speed", Int32, queue_size=20)
         self.mode_pub       = rospy.Publisher("/auto_driver/send/gear", Int32, queue_size=10)
         self.beep_pub      = rospy.Publisher("/auto_driver/send/beep", Int32, queue_size=10)
         # 传感

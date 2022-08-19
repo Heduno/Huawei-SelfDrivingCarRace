@@ -42,7 +42,7 @@ class FollowLaneEvent(DriverEvent):
     def __init__(self, driver, timedelay):
         super(FollowLaneEvent, self).__init__(driver)
         self.timedelay = timedelay
-        self.direction = 50\
+        self.direction = 50
 
         # 定义gear=0时的模糊控制器
         # bias_range = [-40, -30, -20, -15, -8, -3, 0, 3, 8, 15, 20, 30, 40]
@@ -64,8 +64,8 @@ class FollowLaneEvent(DriverEvent):
 
     def strategy(self):
         """ 控制策略 """
+        # bias表示直道中偏移的量，gear表示应该转向的量
         bias, gear = self.driver.get_lane()
-
         bias = -bias
         if gear == 0: # 直道bias控制
             self.direction = 50 # int( self.controller.control(bias) + 50 )
