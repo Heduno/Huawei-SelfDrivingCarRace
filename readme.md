@@ -5,8 +5,8 @@
 在小车上打开终端，运行：
 
 ```
-$ git clone https://gitee.com/liuyvjin/speedstar-final.git
-$ cd ./speedstar-final/Ros
+$ git clone https://github.com/Heduno/Huawei-SelfDrivingCarRace.git
+$ cd ./Huawei-SelfDrivingCarRace/Ros
 ```
 
 ## 2. 安装
