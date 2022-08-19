@@ -9,5 +9,5 @@ chmod +x ~/fantasy_ws/src/auto_driver/src/*.py ~/fantasy_ws/src/bluetooth_bridge
 
 cd ~/fantasy_ws
 catkin_make
-echo "source ~/devel/setup.bash" >> ~/.bashrc
+echo "source ~/fantasy_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc

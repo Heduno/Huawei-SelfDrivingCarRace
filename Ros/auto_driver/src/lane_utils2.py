@@ -92,6 +92,11 @@ class laneDetect:
         if side == 0: # 只剩右边线转换成： -5, -4, -3, -2, -1, 0, 0, 1, 2, 3, 4, 5, 6, 7
             if gear < 0:
                 gear = min(gear + 2, 0)
+        if abs(gear) > 7:
+            if gear > 0:
+                gear = 7
+            elif gear < 0:
+                gear = -7
         return gear
 
     def spin(self, img):
