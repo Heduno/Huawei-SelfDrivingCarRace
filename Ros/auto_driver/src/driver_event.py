@@ -17,7 +17,7 @@ def loop_idx(size):
 
 
 class DriverEvent(object):
-    """ 事件基类 """
+    """ 事件基类1 """
     def __init__(self, driver):
         self.driver = driver # 小车驱动
 
