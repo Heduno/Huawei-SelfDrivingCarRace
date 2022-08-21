@@ -1,0 +1,5 @@
+<launch>
+  <node name="lane_vel" pkg="auto_driver" type="lane_utils3.py" output="screen">  </node>
+  <node name="kinematicCtrl" pkg="auto_driver" type="lane_detect2.py" output="screen">  </node>
+  <node name="driver" pkg="auto_driver" type="main.py" output="screen"></node>
+</launch>
