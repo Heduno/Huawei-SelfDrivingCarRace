@@ -194,6 +194,7 @@ def kinematicCtrl():
     rospy.Subscriber('/vcu/thetaX', Int32, thetaXcallback)
 
     rospy.loginfo(rospy.is_shutdown())
+
     n = 1 # 1Hz
     servodata_list = n * [servodata]
     while not rospy.is_shutdown():

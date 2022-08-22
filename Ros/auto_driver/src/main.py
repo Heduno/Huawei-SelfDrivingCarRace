@@ -26,9 +26,9 @@ def main():
     #                                         score_limit=0.85, max_limited_time=5)
     # speed_minimum_event = SpeedMinimumEvent(driver, scale_prop=0.01, y_limit=0.8, speed_normal=60, speed_high=80,
     #                                         score_limit=0.85)
-    # obstacle_event = ObstacleEvent(driver, speed_normal=60)
+    obstacle_event = ObstacleEvent(driver, speed_normal=60)
     # cross_bridge_event = CrossBridgeEvent(driver, imu_limit=300, speed_limit=80, speed_normal=60, speed_upper=80)
-    # follow_lidar_event = FollowLidarEvent(driver)
+    follow_lidar_event = FollowLidarEvent(driver)
     # yellow_back_event = YellowBackEvent(driver, scale_prop=0.02, y_limit=0.7, speed=20, score_limit=0.4, range_limit=450,
     #                                     turn_time=2, back_direction=35)
     # start_end_event =
@@ -38,13 +38,16 @@ def main():
     #               follow_lidar_event, green_go_event, follow_lane_event, speed_limited_event,
     #               speed_minimum_event]  # 默认为优先级排序，越靠前优先级越高
 
-    event_list = [follow_lane_event]  # 默认为优先级排序，越靠前优先级越高
+    event_list = [obstacle_event, follow_lidar_event, follow_lane_event]  # 默认为优先级排序，越靠前优先级越高
 
     #--- 主循环
     rate = rospy.Rate(100)  # 循环频率
     event_running = []   # 集合保存正在运行的事件
 
     while not rospy.is_shutdown():
+
+
+
         driver.set_mode('D')
         driver.set_speed(30)
 

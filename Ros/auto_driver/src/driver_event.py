@@ -66,6 +66,8 @@ class FollowLaneEvent(DriverEvent):
         """ 控制策略 """
         bias, gear = self.driver.get_lane()
         self.direction = gear
+        self.driver.set_direction(self.direction)
+
         # print(gear)
         # bias = -bias
         # if gear == 0: # 直道bias控制
@@ -75,9 +77,6 @@ class FollowLaneEvent(DriverEvent):
         #     self.direction = int( sign * self.gear_rules[int(abs(gear))] + 50 )
         # if self.direction != self.driver.get_direction():
         #     self.driver.set_direction(self.direction)
-
-
-
 
 
 class FollowLidarEvent(DriverEvent):
