@@ -195,7 +195,7 @@ def kinematicCtrl():
 
     rospy.loginfo(rospy.is_shutdown())
 
-    n = 1 # 1Hz
+    n = 5 # 1Hz
     servodata_list = n * [servodata]
     while not rospy.is_shutdown():
         servodata_list[0:n-1] = servodata_list[1:n]
@@ -312,8 +312,8 @@ def kinematicCtrl():
         # else:
         #     pass
 
-        direction = max(direction, 15)
-        direction = min(direction, 70)
+        direction = max(direction, 0)
+        direction = min(direction, 80)
         lane_pub.publish(LaneMsg(bias=0.0, gear=direction))
         # print('traffic_light', traffic_light_data)
         # print('red_stop_seen', red_stop_seen)

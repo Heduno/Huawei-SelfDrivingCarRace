@@ -25,12 +25,12 @@ import matplotlib.pyplot as plt
 # 距离映射
 # x_cmPerPixel=53/240.00
 # y_cmPerPixel = 75/360.00
-x_cmPerPixel = 53 / (200.00 / 2)
+x_cmPerPixel = 90 / 160.00
 y_cmPerPixel = 75 / (360.00 / 2)
 # x_cmPerPixel = 53/440.00
 # y_cmPerPixel = 75/360.00
 # roadWidth = 390 #454 #车道线的宽度
-roadWidth = 180
+roadWidth = 160
 y_offset = 50.0  # cm 摄像头到轮子的距离
 
 # 轴间距
@@ -442,17 +442,19 @@ class camera:
             # delta_x_ = -roadWidth*0.63
             # else:
             # delta_x_ = roadWidth*0.63
-            # print("============lane_Pk", lane_Pk)
-            if delta_x < 0:
+            print("============lane_Pk", lane_Pk)
+            print("============delta_x", delta_x)
+            print("============x_inter", x_intertcept)
+            if delta_x < 30:
                 if abs(lane_Pk) < 0.1:
                     delta_x_ = -roadWidth * 0.55
                 elif abs(lane_Pk) < 4.5:
                     if x_intertcept < 440:
-                        delta_x_ = -roadWidth * 0.68
+                        delta_x_ = -roadWidth * 0.80
                     else:
-                        delta_x_ = -roadWidth * 0.64
+                        delta_x_ = -roadWidth * 0.74
                 else:
-                    delta_x_ = -roadWidth * 0.55
+                    delta_x_ = -roadWidth * 0.80
                 y = aim_line + delta_x_ * cos(theta)
             else:
                 if abs(lane_Pk) < 0.1:
@@ -531,11 +533,11 @@ class camera:
             # plt.plot([405,405],[0,720])
             # plt.show()
             # ============================display========================
-            lower_yellow = np.array([15, 80, 130])  # np.array([0, 74, 120])  # 黄色阈值下界
-            upper_yellow = np.array([71, 222, 255])  # np.array([71, 222, 255]) # 黄色阈值上界
+            lower_yellow = np.array([0, 0, 220])  # np.array([0, 74, 120])  # 黄色阈值下界
+            upper_yellow = np.array([222, 222, 255])  # np.array([71, 222, 255]) # 黄色阈值上界
             img_hsv = cv2.cvtColor(warped_img, cv2.COLOR_BGR2HSV)  # 将BGR图像转换为HSV格式
             binary_warped = cv2.inRange(img_hsv, lower_yellow, upper_yellow)
-
+            cv2.imshow('binary_warped1 ', binary_warped)
             # gray_img = cv2.cvtColor(warped_img, cv2.COLOR_BGR2GRAY)
             ret1, binary_warped = cv2.threshold(binary_warped, 0, 255, cv2.THRESH_OTSU)  # 大津阈值算法
             # binary_warped = self.hlsLSelect(warped_img)  # hsl变换
@@ -613,7 +615,7 @@ class camera:
             # =========================================================================
             # end3 = time.time()
             # print("======",end3-start1)
-            # cv2.waitKey(1)
+            cv2.waitKey(5)
 
 
 if __name__ == '__main__':

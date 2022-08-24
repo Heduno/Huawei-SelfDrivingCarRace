@@ -49,7 +49,7 @@ def main():
 
 
         driver.set_mode('D')
-        driver.set_speed(30)
+        driver.set_speed(10)
 
         # 查询从未开始变化为开始的事件并加入到运行事件列表中
         for i, event in enumerate(event_list):
